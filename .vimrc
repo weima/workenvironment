@@ -276,6 +276,10 @@ nnoremap <Space> <C-w>
 nnoremap ; :
 vnoremap ; :
 
+" I want to be able to inert simicolon to end of statement
+inoremap ;; <Esc>A;<Esc>
+nnoremap ;; A;<Esc>
+
 " Yank entire buffer with gy
 nnoremap gy :0,$ y<cr>
 
