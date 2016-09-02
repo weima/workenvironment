@@ -106,7 +106,10 @@ set ttimeoutlen=50
 "map <C-S-p> :nbkey snippet-complete<cr>
 
 "Nerd tree
-"map <C-n> :NERDTreeToggle<CR>
+nnoremap <Space>t :NERDTreeToggle<CR>
+nnoremap <Space>p :CtrlP .<CR>
+nnoremap <Space>pb :CtrlPBuffer<CR>
+
 map - <C-w>- 
 map + <C-w>+ 
 nnoremap <C-_> <C-w>_
