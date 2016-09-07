@@ -37,6 +37,10 @@ call vundle#begin()
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+call plug#begin('~/.vim/plugged')
+"    Plug 'vimlab/neojs'
+call plug#end()
+
 syntax enable
 set fileformats=unix,dos
 set ruler
@@ -80,10 +84,6 @@ autocmd BufWinEnter * call clearmatches()
 autocmd BufWinLeave * call clearmatches()
 autocmd InsertLeave * call clearmatches()
 
-" Loading user settings and overwrites.
-if filereadable(expand("~/.vim/custom.vim"))
-    source ~/.vim/custom.vim
-endif
 
 " Different mode has different cursor for tmus running iTmer2 on OSX
 "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -107,8 +107,14 @@ set ttimeoutlen=50
 
 "Nerd tree
 nnoremap <Space>t :NERDTreeToggle<CR>
+
+"I want to search current and subfolders
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = 'find %s -type f \( ! -iname "*~" \) '
+
 nnoremap <Space>p :CtrlP .<CR>
-nnoremap <Space>pb :CtrlPBuffer<CR>
+nnoremap <Space>pb :CtrlPMixed<CR>
+
 
 map - <C-w>- 
 map + <C-w>+ 
@@ -124,9 +130,9 @@ set clipboard=unnamed
 
 "display white spaces
 scriptencoding utf-8
-set encoding=utf-8
+"set encoding=utf-8
 "set list 
-set listchars=trail:·,tab:→→,extends:»,eol:¤,precedes:« 
+"set listchars=trail:·,tab:→→,extends:»,eol:¤,precedes:« 
 
 " ---------------
 " UI
@@ -136,8 +142,8 @@ set ruler          " Ruler on
 set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
-set cursorline     " Highlight current line
-set encoding=utf-8
+"set cursorline     " Highlight current line
+"set encoding=utf-8
 set noshowmode     " Don't show the mode since Powerline shows it
 set title          " Set the title of the window in the terminal to the file
 " if exists('+colorcolumn')
@@ -182,7 +188,7 @@ set switchbuf=useopen  " Switch to an existing buffer if one exists
 " ---------------
 set tabstop=2
 set backspace=indent,eol,start " Delete everything with backspace
-set shiftwidth=3 " Tabs under smart indent
+set shiftwidth=4 " Tabs under smart indent
 set shiftround
 set cindent
 set autoindent
@@ -214,15 +220,15 @@ set list
 " Reset the listchars
 set listchars=""
 " make tabs visible
-set listchars=tab:▸▸
+"set listchars=tab:▸▸
 " show trailing spaces as dots
-set listchars+=trail:•
+"set listchars+=trail:•
 " The character to show in the last column when wrap is off and the line
 " continues beyond the right of the screen
-set listchars+=extends:>
+"set listchars+=extends:>
 " The character to show in the last column when wrap is off and the line
 " continues beyond the right of the screen
-set listchars+=precedes:<
+"set listchars+=precedes:<
 
 " ---------------
 " Sounds
