@@ -29,6 +29,7 @@ call vundle#begin()
    Plugin 'altercation/vim-colors-solarized'
    Plugin 'godlygeek/tabular'
    Plugin 'tpope/vim-dispatch'
+   Plugin 'rking/ag.vim'
 "   
 "   " The following are examples of different formats supported.
 "   " Keep Plugin commands between vundle#begin/end.
@@ -303,6 +304,12 @@ noremap L $
 " Create newlines without entering insert mode
 nnoremap go o<Esc>k
 nnoremap gO O<Esc>j
+
+" Break the current line entering insert mode
+nnoremap ee i<cr><Esc>
+nnoremap <Space><Space> i<Space><Esc>
+
+
 
 " remap U to <C-r> for easier redo
 " from http://vimbits.com/bits/356
