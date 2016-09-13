@@ -168,6 +168,10 @@ nnoremap <Space> <C-w>
 nnoremap ; :
 vnoremap ; :
 
+" I want to be able to insert semilonon to end of statement
+inoremap ;; <Esc>A;<Esc>
+nnoremap ;; A;<Esc>
+
 " Yank entire buffer with gy
 nnoremap gy :0,$ y<cr>
 
@@ -185,6 +189,8 @@ noremap L $
 " Create newlines without entering insert mode
 nnoremap go o<Esc>k
 nnoremap gO O<Esc>j
+nnoremap ee i<cr><Esc>
+nnoremap <space><space> i<space><Esc>
 
 " remap U to <C-r> for easier redo
 " from http://vimbits.com/bits/356
