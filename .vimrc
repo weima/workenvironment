@@ -35,11 +35,16 @@ call vundle#begin()
 "   " Keep Plugin commands between vundle#begin/end.
 "    
 "    " All of your Plugins must be added before the following line
+"
+
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 call plug#begin('~/.vim/plugged')
 "    Plug 'vimlab/neojs'
+    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'junegunn/fzf', {'dir':'~/.fzf', 'do': './install --all'}
 call plug#end()
 
 syntax enable
@@ -114,17 +119,10 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'find %s -type f \( ! -iname "*~" \) '
 
 nnoremap <Space>p :CtrlP .<CR>
-nnoremap <Space>pb :CtrlPMixed<CR>
 
 
 map - <C-w>- 
 map + <C-w>+ 
-nnoremap <C-_> <C-w>_
-nnoremap <C-=> <C-w>o
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 "default yank will go to clipboard
 set clipboard=unnamed
@@ -273,7 +271,19 @@ let mapleader=','
 let maplocalleader = ' '
 
 "We would like to use space to replace control-w
-nnoremap <Space> <C-w>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+
+nnoremap <leader>n :vsp term://zsh<Cr>
+
+tnoremap <leader>h <C-\><C-n><C-w>h
+tnoremap <leader>l <C-\><C-n><C-w>l
+tnoremap <leader>j <C-\><C-n><C-w>j
+tnoremap <leader>k <C-\><C-n><C-w>k
+
+
 
 " ---------------
 " Regular Mappings
@@ -393,19 +403,19 @@ vnoremap jK <Esc>
 noremap <silent><leader>/ :nohls<CR>
 
 " Highlight search word under cursor without jumping to next
-nnoremap <leader>h *<C-O>
+"nnoremap <leader>h *<C-O>
 
 " Toggle spelling mode
-nnoremap <silent> <leader>sp :set spell!<CR>
+"nnoremap <silent> <leader>sp :set spell!<CR>
 
 " Quickly switch to last buffer
 nnoremap <leader>, :e#<CR>
 
 " Underline the current line with '-'
-nnoremap <silent> <leader>ul :t.\|s/./-/\|:nohls<cr>
+"nnoremap <silent> <leader>ul :t.\|s/./-/\|:nohls<cr>
 
 " Underline the current line with '='
-nnoremap <silent> <leader>uul :t.\|s/./=/\|:nohls<cr>
+"nnoremap <silent> <leader>uul :t.\|s/./=/\|:nohls<cr>
 
 " Surround the commented line with lines.
 "
@@ -415,18 +425,18 @@ nnoremap <silent> <leader>uul :t.\|s/./=/\|:nohls<cr>
 "          # --------
 "          # Test 123
 "          # --------
-nnoremap <silent> <leader>cul :normal "lyy"lpwvLr-^"lyyk"lP<cr>
+"nnoremap <silent> <leader>cul :normal "lyy"lpwvLr-^"lyyk"lP<cr>
 
 " Format the entire file
 nnoremap <leader>fef mx=ggG='x
 
 " Format a json file with Underscore CLI
 " Inspirited by https://github.com/spf13/spf13-vim/blob/3.0/.vimrc#L390
-nnoremap <leader>fj <Esc>:%!underscore print<CR><Esc>:set filetype=json<CR>
+"nnoremap <leader>fj <Esc>:%!underscore print<CR><Esc>:set filetype=json<CR>
 
 " Split window vertically or horizontally *and* switch to the new split!
-nnoremap <silent> <leader>hs :split<Bar>:wincmd j<CR>:wincmd =<CR>
-nnoremap <silent> <leader>vs :vsplit<Bar>:wincmd l<CR>:wincmd =<CR>
+"nnoremap <silent> <leader>hs :split<Bar>:wincmd j<CR>:wincmd =<CR>
+"nnoremap <silent> <leader>vs :vsplit<Bar>:wincmd l<CR>:wincmd =<CR>
 
 " Close the current window
 nnoremap <silent> <m-w> :close<CR>
