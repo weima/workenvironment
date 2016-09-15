@@ -276,12 +276,24 @@ nnoremap <leader>l <C-w>l
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 
+nnoremap <leader>hh <C-w>H<C-w>=
+nnoremap <leader>ll <C-w>L<C-w>=
+nnoremap <leader>jj <C-w>J<C-w>=
+nnoremap <leader>kk <C-w>K<C-w>=
+
 nnoremap <leader>n :vsp term://zsh<Cr>
+
+nnoremap == <C-w>=
 
 tnoremap <leader>h <C-\><C-n><C-w>h
 tnoremap <leader>l <C-\><C-n><C-w>l
 tnoremap <leader>j <C-\><C-n><C-w>j
 tnoremap <leader>k <C-\><C-n><C-w>k
+
+tnoremap <leader>hh <C-\><C-n><C-w>H
+tnoremap <leader>ll <C-\><C-n><C-w>L
+tnoremap <leader>jj <C-\><C-n><C-w>J
+tnoremap <leader>kk <C-\><C-n><C-w>K
 
 
 
