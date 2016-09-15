@@ -30,15 +30,24 @@ call vundle#begin()
    Plugin 'godlygeek/tabular'
    Plugin 'tpope/vim-dispatch'
    Plugin 'rking/ag.vim'
-"   
-"   " The following are examples of different formats supported.
-"   " Keep Plugin commands between vundle#begin/end.
+   " Track the engine.
+   Plugin 'SirVer/ultisnips'
+
+   " Snippets are separated from the engine. Add this if you want them:
+   Plugin 'honza/vim-snippets'
+
+    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+   let g:UltiSnipsExpandTrigger="<tab>"
+   let g:UltiSnipsJumpForwardTrigger="<c-b>"
+   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+   " If you want :UltiSnipsEdit to split your window.
+   let g:UltiSnipsEditSplit="vertical"
+
 "    
 "    " All of your Plugins must be added before the following line
-"
-
-
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 
 call plug#begin('~/.vim/plugged')
@@ -271,29 +280,12 @@ let mapleader=','
 let maplocalleader = ' '
 
 "We would like to use space to replace control-w
-nnoremap <leader>h <C-w>h
-nnoremap <leader>l <C-w>l
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-
-nnoremap <leader>hh <C-w>H<C-w>=
-nnoremap <leader>ll <C-w>L<C-w>=
-nnoremap <leader>jj <C-w>J<C-w>=
-nnoremap <leader>kk <C-w>K<C-w>=
+nnoremap qw <C-w>
+inoremap qw <C-w>
+tnoremap qw <C-\><C-n><C-w>
 
 nnoremap <leader>n :vsp term://zsh<Cr>
-
 nnoremap == <C-w>=
-
-tnoremap <leader>h <C-\><C-n><C-w>h
-tnoremap <leader>l <C-\><C-n><C-w>l
-tnoremap <leader>j <C-\><C-n><C-w>j
-tnoremap <leader>k <C-\><C-n><C-w>k
-
-tnoremap <leader>hh <C-\><C-n><C-w>H
-tnoremap <leader>ll <C-\><C-n><C-w>L
-tnoremap <leader>jj <C-\><C-n><C-w>J
-tnoremap <leader>kk <C-\><C-n><C-w>K
 
 
 
